@@ -1,0 +1,4 @@
+{
+    "appService.preDeployTask": "package:java-docs-spring-hello-world",
+    "appService.deploySubpath": "target/java-docs-spring-hello-world-0.0.1-SNAPSHOT.jar"
+}
