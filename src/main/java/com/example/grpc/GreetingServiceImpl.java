@@ -110,8 +110,8 @@ public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImpl
 
     // START - OpenAI Chat //
 		OpenAIClient client = new OpenAIClientBuilder()
-			.credential(new AzureKeyCredential("9cbad1833fb3408292daa202d6a13aee"))
-			.endpoint("https://grpc-openai.openai.azure.com")
+			.credential(new AzureKeyCredential("dc7b76ac36874ea0aef8674840e31eab"))
+			.endpoint("https://ignite-demo-openai.openai.azure.com/")
 			.buildClient();
 
     // qData: data set from queue storage account
@@ -121,7 +121,7 @@ public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImpl
     chatMessages.add(new ChatMessage(ChatRole.SYSTEM, systemContext));
     chatMessages.add(new ChatMessage(ChatRole.USER, request.getName()));
 
-    ChatCompletions chatCompletions = client.getChatCompletions("gpt-35-turbo-model",
+    ChatCompletions chatCompletions = client.getChatCompletions("deploy1",
         new ChatCompletionsOptions(chatMessages));
 
     String outputChat = " ";
