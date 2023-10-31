@@ -67,7 +67,7 @@ public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImpl
 
     // START - OpenAI Chat //
     OpenAIClient client = new OpenAIClient(
-        new Uri("https://ignite-demo-apim.azure-api.net/deployments/deploy1/chat/completions?api-version=INSERT_API_VERSION_HERE"),
+        new java.net.URI("https://ignite-demo-apim.azure-api.net/deployments/deploy1/chat/completions?api-version=INSERT_API_VERSION_HERE"),
         new AzureKeyCredential("e448e88135da4b30ab51baf117cae890"));
 
 		//OpenAIClient client = new OpenAIClientBuilder()
