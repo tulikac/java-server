@@ -52,24 +52,7 @@ public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImpl
             .queueName(queueName)
             .buildClient();
 
-    // test q - local
-    // String queueName ="testq";
-
-    // QueueClient queueClient = new QueueClientBuilder()
-    // .endpoint("https://ignitedemostoragetest.queue.core.windows.net/")
-    // .queueName(queueName)
-    // .credential(new DefaultAzureCredentialBuilder().build())
-    // .buildClient();
-
-    // ignitewebjob store - needs to add role assignment
-    // String queueName ="destinationq";
-
-    // QueueClient queueClient = new QueueClientBuilder()
-    // .endpoint("https://ignitewebjob.queue.core.windows.net/")
-    // .queueName(queueName)
-    // .credential(new DefaultAzureCredentialBuilder().build())
-    // .buildClient();
-
+  
 
     // Get messages from the queue
     queueClient.receiveMessages(10).forEach(
@@ -80,33 +63,7 @@ public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImpl
     );
     // END - AZURE Q //
 
-		// START - MYSQL
-		// String url="jdbc:mysql://ignite-demo-db.mysql.database.azure.com/petclinic";
-
-    // String petData = " ";
-
-		// System.out.println("mySQL response:");
-		// try {
-		// 	Class.forName("com.mysql.cj.jdbc.Driver");
-
-		// 	Connection connection = DriverManager.getConnection(url, "petclinic", "petclinic");
-
-		// 	Statement statement = connection.createStatement();
-
-		// 	ResultSet resultSet = statement.executeQuery("select * from pets");
-
-		// 	while (resultSet.next()){
-		// 		System.out.println(resultSet.getInt(1) + " " + resultSet.getString(2) + " " + resultSet.getDate(3));
-
-    //   petData = petData.concat(resultSet.getString(2) + " ");
-
-    //   }
-		// 	connection.close();
-		// }
-		// catch(Exception e){
-		// 	System.out.println(e);
-		// }
-		// END - MYSQL
+	
 
     // START - OpenAI Chat //
 		OpenAIClient client = new OpenAIClientBuilder()
