@@ -75,8 +75,8 @@ public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImpl
         
 
 		OpenAIClient client = new OpenAIClientBuilder()
-			.credential(new AzureKeyCredential("e448e88135da4b30ab51baf117cae890"))
-			.endpoint("https://ignite-demo-apim.azure-api.net/deployments/deploy1/chat/completions?api-version=2023-07-01-preview")
+			.credential(new AzureKeyCredential("dc7b76ac36874ea0aef8674840e31eab"))
+			.endpoint("https://ignite-demo-openai.openai.azure.com")
 			.buildClient();
 
     // qData: data set from queue storage account
