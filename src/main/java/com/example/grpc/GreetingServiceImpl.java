@@ -75,7 +75,8 @@ public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImpl
         
 
 		OpenAIClient client = new OpenAIClientBuilder()
-			.credential(new AzureKeyCredential("dc7b76ac36874ea0aef8674840e31eab"))
+			//.credential(new AzureKeyCredential("dc7b76ac36874ea0aef8674840e31eab"))
+			.credential(new BasicAuthenticationCredential("user1","passowrd"))
 			.endpoint("https://ignite-demo-apim.azure-api.net/")
 			.buildClient();
 
