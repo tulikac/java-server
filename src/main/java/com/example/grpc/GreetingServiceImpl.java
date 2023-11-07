@@ -72,11 +72,12 @@ public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImpl
       //  new java.net.URI("https://ignite-demo-apim.azure-api.net/deployments/deploy1/chat/completions?api-version=INSERT_API_VERSION_HERE"),
         //new AzureKeyCredential("e448e88135da4b30ab51baf117cae890"));
 
-        
+        HttpClientOptions clientOptions = new HttpClientOptions()
+    		.setHeaders(Collections.singletonList(new Header("Ocp-Apim-Subscription-Key", "e448e88135da4b30ab51baf117cae890")));
 
 		OpenAIClient client = new OpenAIClientBuilder()
 			//.credential(new AzureKeyCredential("dc7b76ac36874ea0aef8674840e31eab"))
-			.credential(new BasicAuthenticationCredential("user1","passowrd"))
+			.clientOptions(clientOptions)
 			.endpoint("https://ignite-demo-apim.azure-api.net/")
 			.buildClient();
 
