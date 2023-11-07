@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.azure.core.util.*;
 
 import com.azure.ai.openai.OpenAIAsyncClient;
 import com.azure.ai.openai.OpenAIClient;
@@ -72,7 +73,7 @@ public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImpl
       //  new java.net.URI("https://ignite-demo-apim.azure-api.net/deployments/deploy1/chat/completions?api-version=INSERT_API_VERSION_HERE"),
         //new AzureKeyCredential("e448e88135da4b30ab51baf117cae890"));
 
-        HttpClientOptions clientOptions = new HttpClientOptions()
+        ClientOptions clientOptions = new ClientOptions()
     		.setHeaders(Collections.singletonList(new Header("Ocp-Apim-Subscription-Key", "e448e88135da4b30ab51baf117cae890")));
 
 		OpenAIClient client = new OpenAIClientBuilder()
