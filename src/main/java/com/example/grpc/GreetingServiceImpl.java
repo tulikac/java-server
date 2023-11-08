@@ -41,7 +41,7 @@ public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImpl
     // START - AZURE Q //
 
     // test q prod
-    //String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
+    String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 
     // Create a unique name for the queue
     String queueName ="destinationq";
@@ -49,7 +49,7 @@ public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImpl
     // Instantiate a QueueClient
     // We'll use this client object to create and interact with the queue
     QueueClient queueClient = new QueueClientBuilder()
-            .connectionString("DefaultEndpointsProtocol=https;AccountName=ignitewebjob;AccountKey=X+JqpubLLFKrzqRm+/qXNB+f3mbHI8x1MnjZYTg0ZJiVB0Ykr3IDJ2lrNO0KQsbg6XkXOxJqunHa+AStlrFJwA==;EndpointSuffix=core.windows.net")
+            .connectionString(connectStr)
             .queueName(queueName)
             .buildClient();
 
@@ -69,16 +69,8 @@ public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImpl
     // START - OpenAI Chat //
 
 
-    //OpenAIClient client = new OpenAIClient(
-      //  new java.net.URI("https://ignite-demo-apim.azure-api.net/deployments/deploy1/chat/completions?api-version=INSERT_API_VERSION_HERE"),
-        //new AzureKeyCredential("e448e88135da4b30ab51baf117cae890"));
-
-        //ClientOptions clientOptions = new ClientOptions()
-    	//	.setHeaders(Collections.singletonList(new Header("Ocp-Apim-Subscription-Key", "e448e88135da4b30ab51baf117cae890")));
-
+   
 		OpenAIClient client = new OpenAIClientBuilder()
-			//.credential(new AzureKeyCredential("dc7b76ac36874ea0aef8674840e31eab"))
-			//.clientOptions(clientOptions)
 			.endpoint("https://ignite-demo-apim.azure-api.net/")
 			.buildClient();
 
